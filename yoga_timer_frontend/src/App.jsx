@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SessionForm from './components/SessionForm';
 import SessionList from './components/SessionList';
 import SessionShow from './components/SessionShow';
+import SessionCountdown from './components/SessionCountdown';
 import './App.css';
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             </>
           }/>
           <Route path="/sessions/:id" element={<SessionShow /> }/>
+          <Route path="/sessions/:id/countdown" element={<SessionCountdown /> }/>
         </Routes>
       </div>
     </Router>
