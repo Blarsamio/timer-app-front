@@ -1,0 +1,298 @@
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+:root {
+  --clr-primary: #434371;
+  --clr-secondary: #FBF5F3;
+  --clr-tertiary: #C42847;
+  --clr-hover: #C42847;
+  --bs-body-color: #434371 !important;
+  --main-font: "Inter", sans-serif !important;
+  --nav-height: 78px;
+  --hard-shadow: 8px 8px 0 0 var(--clr-primary);
+}
+
+.inter-font {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+li .nav-link:hover {
+    color: var(--clr-hover);
+}
+
+.my-navbar {
+  list-style: none;
+
+  ul {
+    padding: 0px;
+  }
+}
+
+.pt-navbar {
+  padding-top: 70px;
+}
+
+.section-100 {
+  height: calc(100svh - var(--nav-height) + 22px);
+}
+
+.hero-header {
+  font-size: clamp(5rem, 10vw, 9rem);
+  font-family: var(--main-font);
+  font-weight: bold;
+  font-style: normal;
+  line-height: 0.8;
+}
+
+.section-header {
+  font-size: clamp(4rem, 10vw, 7rem);;
+  font-family: var(--main-font);
+  font-weight: bold;
+  font-style: normal;
+  line-height: 0.8;
+}
+
+.hero-subline {
+  font-size: clamp(1.5rem, 3vw, 2.8rem);
+  font-weight: medium;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.blue-bg {
+  background-color: var(--clr-primary);
+}
+
+.peach-bg {
+  background-color: var(--clr-secondary);
+}
+
+.text-peach {
+  color: var(--clr-secondary);
+  text-decoration: none;
+}
+
+.text-blue {
+  color: var(--clr-primary);
+  text-decoration: none;
+}
+
+.badge-bg-blue {
+  background-color: var(--clr-primary);
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    color: #000677;
+  }
+}
+
+.blue-shadow {
+  box-shadow: 8px 8px 0 0 var(--clr-primary);
+}
+
+.next-section {
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: translateY(0px);
+  }
+}
+
+.portrait {
+  width: 90%;
+  object-fit: contain;
+  box-shadow: var(--hard-shadow);
+
+  &:hover {
+    box-shadow: 8px 8px 0 0 var(--clr-tertiary);
+  }
+}
+
+.about-box {
+  max-width: 90vw;
+  object-fit: contain;
+}
+
+.card-width {
+  max-width: 800px;
+
+  img {
+    max-height: 150px;
+  }
+}
+
+#contact {
+  min-height: 650px;
+}
+
+#about {
+  padding-bottom: 10rem;
+}
+
+.nav-footer {
+  .nav-item, .nav-link {
+    color: var(--clr-secondary);
+    list-style: none;
+  }
+}
+
+.project-card {
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+
+    a{
+      color: var(--clr-tertiary);
+    }
+  }
+}
+
+.github-repo {
+  &:hover {
+    font-weight: 500;
+  }
+}
+
+
+/* mobile menu */
+
+#mobile-nav {
+  display: none;
+}
+
+.mobile-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.mobile-menu.open {
+  background-color: var(--clr-secondary);
+}
+
+.mobile-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+  margin: 1rem;
+
+  span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-primary);
+    transition: all 0.3s ease-in-out;
+  }
+
+  span:first-child {
+    transform: none;
+  }
+
+  span:first-child {
+    opacity: 1;
+  }
+
+  span:first-child {
+    transform: none;
+  }
+}
+
+.mobile-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.mobile-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+
+.mobile-links {
+  position: absolute;
+  top: 100%;
+  background-color: var(--clr-secondary);
+  max-height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+
+  a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    transform: all 0.3s ease-in-out;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  li:hover {
+    color: var(--clr-hover);
+    scale: 1.1;
+  }
+}
+
+.mobile-links.open {
+  max-height: fit-content;
+  border-bottom: 4px solid var(--clr-primary);
+}
+
+
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+
+  #mobile-nav {
+    display: flex;
+  }
+
+  #hero-text-container {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #projects {
+    padding-bottom: 2rem;
+  }
+  #about {
+    padding-bottom: 5rem;
+  }
+  #home {
+    padding-bottom: 2rem;
+  }
+}
+
+.ruby {
+  height: 41px;
+  width: 41px;
+}
+
+.footer-item :hover{
+  color: var(--clr-hover);
+}
