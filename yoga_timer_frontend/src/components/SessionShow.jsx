@@ -41,21 +41,25 @@ function SessionShow() {
   }
 
   return (
-    <div className="session-show">
-      <h2 className="text-xl font-semibold">{session.name}</h2>
-      <p className="text-gray-700 mb-2">{session.description}</p>
-      <TimerForm onAddTimer={handleAddTimer} />
+    <div className="session-show w-full">
+      <h2 className="text-5xl font-semibold text-black font-zen mb-4">{session.name}</h2>
+      <p className="text-gray-700 mb-2 text-black font-ubuntu">{session.description}</p>
       <div className="timers mt-2">
-        {session.timers.map(timer => (
-          <Timer key={timer.id} duration={timer.duration} title={timer.title} />
-        ))}
+        {session.timers.length === 0 ? (
+          <h2 className="text-black font-ubuntu text-xl mb-4">No timers added yet, add one</h2>
+        ) : (
+          session.timers.map(timer => (
+            <Timer key={timer.id} duration={timer.duration} title={timer.title} />
+          ))
+        )}
       </div>
+      <TimerForm onAddTimer={handleAddTimer} />
       <div className="mt-4">
         <button
           onClick={handleStartSession}
-          className="bg-green-500 text-white p-2 rounded mr-2"
+          className="bg-gold text-white p-2 rounded w-[50%] mx-auto"
         >
-          Start Session
+          Start
         </button>
       </div>
     </div>

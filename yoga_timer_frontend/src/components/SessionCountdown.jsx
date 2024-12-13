@@ -22,16 +22,12 @@ function SessionCountdown() {
       });
   }, [id]);
 
-  useEffect(() => {
-    fetch(`http://localhost:3000/sessions/${id}`)
-      .then(response => response.json())
-      .then(data => {
-        setSession(data);
-        if (data.timers.length > 0) {
-          setKey((prevKey) => prevKey + 1); // Restart timer
-        }
-      });
-  }, [id]);
+  const handleSkip = () => {
+    if (currentTimerIndex + 1 < session.timers.length) {
+      setCurrentTimerIndex((prevIndex) => prevIndex + 1);
+      setKey((prevKey) => prevKey + 1); // Restart timer
+    }
+  };
 
   const handleComplete = () => {
     if (currentTimerIndex + 1 < session.timers.length) {
@@ -50,28 +46,29 @@ function SessionCountdown() {
 
   return (
     <div className="session-countdown">
-      <h2 className="text-xl font-semibold">{session.name}</h2>
-      <p className="text-gray-700 mb-2">{session.description}</p>
+      <h2 className="text-4xl text-black font-semibold mb-4">{session.name}</h2>
       <div className="timer-display mt-4">
         <CountdownCircleTimer
           key={key}
+          size={350}
           isPlaying={isSessionActive && !isPaused}
           duration={session.timers[currentTimerIndex].duration}
-          colors={['#004777', '#F7B801', '#A30000', '#A30000']}
-          colorsTime={[7, 5, 2, 0]}
+          colors={['#A99985']}
           onComplete={handleComplete}
         >
           {({ remainingTime }) => (
-            <div className="timer">
-              <p>Current Timer: {Math.floor(remainingTime / 60)}:{('0' + (remainingTime % 60)).slice(-2)}</p>
+            <div className="timer text-black text-5xl">
+              <p>{Math.floor(remainingTime / 60)}:{('0' + (remainingTime % 60)).slice(-2)}</p>
+              <p className='text-2xl'>{session.timers[currentTimerIndex].title}</p>
             </div>
           )}
         </CountdownCircleTimer>
+        <button onClick={handleSkip} className="bg-gold text-white p-2 rounded mt-4 w-full">
+          Skip
+        </button>
       </div>
       {/* Placeholder for countdown animation library */}
-      <div className="countdown-animation">
-        {/* Add your countdown animation component here */}
-      </div>
+
     </div>
   );
 }

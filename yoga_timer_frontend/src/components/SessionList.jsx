@@ -4,18 +4,17 @@ import { Link } from 'react-router-dom';
 function SessionList({ sessions, onDelete }) {
   return (
     <div className="session-list">
+      <h2 className='text-black font-zen text-5xl mb-8'>Sessions List</h2>
       {sessions.map(session => (
-        <div key={session.id} className="session p-4 border rounded-lg mb-4 flex flex-row justify-between">
-          <div className="flex flex-col justify-between items-center">
-            <Link to={`/sessions/${session.id}`} className="text-xl font-semibold text-white self-start">
+        <div key={session.id} className="session p-4 border border-gold rounded-lg mb-4 flex flex-row justify-between">
+          <div className="self-center">
+            <Link to={`/sessions/${session.id}`} className="text-xl font-zen text-black self-start">
               {session.name}
             </Link>
-            <p className="text-gray-500 self-start">{session.description}</p>
-
           </div>
           <button
             onClick={() => onDelete(session.id)}
-            className="bg-red-500 text-white p-2 rounded"
+            className="bg-gold text-white p-2 rounded"
           >
             Delete
           </button>
