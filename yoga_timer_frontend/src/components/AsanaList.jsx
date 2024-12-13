@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function AsanaList({ asanas }) {
   return (
     <div className="asana-list">
-      <h2 className='text-black font-zen text-5xl mb-8'>Asana List</h2>
+      <h2 className='text-black font-zen text-5xl mb-8'>Asanas</h2>
       {asanas.map(asana => (
         <div key={asana.id} className="asana p-4 border border-gold rounded-lg mb-4 flex flex-row justify-between">
           <div className="self-center">

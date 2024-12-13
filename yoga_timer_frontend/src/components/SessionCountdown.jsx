@@ -35,7 +35,7 @@ function SessionCountdown() {
       setKey((prevKey) => prevKey + 1); // Restart timer
     } else {
       setIsSessionActive(false);
-      navigate(`/sessions/${id}/complete`); // Redirect to a completion page or some other page
+      navigate(`/sessions/${id}`); // Redirect to a completion page or some other page
     }
     return { shouldRepeat: false };
   };

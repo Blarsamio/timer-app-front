@@ -23,10 +23,10 @@ function Timer({ duration, title }) {
   }, [isActive, timeLeft]);
 
   return (
-    <div className="timer py-2 border border-black rounded-lg mb-4">
-      <div className="time text-3xl font-mono text-black">
+    <div className="timer py-2 border border-gold rounded-lg mb-4">
+      <div className="font-ubuntu text-lg text-black">
+        <p className='text-gray-500 text-xl font-zen'>{title}</p>
         {Math.floor(timeLeft / 60)}:{('0' + (timeLeft % 60)).slice(-2)}
-        <p className='text-gray-500 font-semibold text-sm'>{title}</p>
       </div>
       <audio ref={audioRef} src="/src/assets/bowl.wav" />
     </div>
